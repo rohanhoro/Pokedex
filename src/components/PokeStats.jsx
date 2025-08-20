@@ -1,8 +1,7 @@
 export default function PokeStats({ data }) {
   const stats = data.stats;
+  
   const statValues = [];
-
-  console.log(stats);
 
   stats.map((stat) => statValues.push(stat.base_stat));
   let maxValue = Math.max(...statValues);
@@ -11,35 +10,31 @@ export default function PokeStats({ data }) {
   const attackValue = Math.round((stats[1].base_stat / maxValue) * 100);
   const defenceValue = Math.round((stats[2].base_stat / maxValue) * 100);
   const speedValue = Math.round((stats[5].base_stat / maxValue) * 100);
-  console.log(`hp:${hpValue}`);
-  console.log(`attack:${attackValue}`);
-  console.log(`defence:${defenceValue}`);
-  console.log(`speed:${speedValue}`);
 
   const statItems = [
     {
       id: 1,
       name: "HP",
       value: hpValue,
-      barColor: "bg-[#29d831]",
+      barColor: "bg-[#78e27d]",
     },
     {
       id: 2,
       name: "Attack",
       value: attackValue,
-      barColor: "bg-[#d62525]",
+      barColor: "bg-[#e95757]",
     },
     {
       id: 3,
       name: "Defence",
       value: defenceValue,
-      barColor: "bg-[#e4e020]",
+      barColor: "bg-[#f0ee7f]",
     },
     {
       id: 4,
       name: "Speed",
       value: speedValue,
-      barColor: "bg-[#397fc0]",
+      barColor: "bg-[#81c8e9]",
     },
   ];
 

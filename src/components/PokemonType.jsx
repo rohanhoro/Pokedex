@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import axiosInstance from "../api/axiosInstance";
 import bugIcon from "../assets/types-icons/Bug_icon.png";
 import darkicon from "../assets/types-icons/Dark_icon.png";
 import dragonIcon from "../assets/types-icons/Dragon_icon.png";
@@ -209,25 +207,13 @@ const renderPokeTypes = (data) => {
   }
 };
 
-export default function PokemonType({ id }) {
-  const [pokeType, setPokeType] = useState([]);
-  useEffect(() => {
-    const handleApiCall = async () => {
-      try {
-        const response = (await axiosInstance.get(`/pokemon/${id}`)).data.types;
-        setPokeType(response);
-        console.log(response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    handleApiCall();
-  }, [id]);
-
+export default function PokemonType({ data: pokeData }) {
   return (
     <div className="flex gap-8 items-center justify-center mt-4">
-      {pokeType.map((data) => (
-        <div key={data.slot} className="capitalize">{renderPokeTypes(data)}</div>
+      {pokeData.types.map((data) => (
+        <div key={data.slot} className="capitalize">
+          {renderPokeTypes(data)}
+        </div>
       ))}
     </div>
   );
