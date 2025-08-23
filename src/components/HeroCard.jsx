@@ -1,12 +1,12 @@
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import usePokeContext from "../hooks/usePokeContext";
 import PokemonType from "./PokemonType";
 import PokeStats from "./PokeStats";
 
-export default function HeroCard({ data: pokeData }) {
+export default function HeroCard() {
   const [isPlaying, setIsPlaying] = useState(false);
-
-  console.log(pokeData);
+  const { pokeData } = usePokeContext();
 
   const audioRef = useRef(null);
 
@@ -30,18 +30,19 @@ export default function HeroCard({ data: pokeData }) {
   }, [isPlaying]);
 
   return (
-    <div className="text-white border-r-0 border-b-0 hover:scale-101 shadow-xl hover:shadow-2xl transition w-100 min-h-150 rounded-lg backdrop-blur-sm py-4 px-8">
+    <div className="text-black border-r-0 border-b-0 hover:shadow-2xl  hover:scale-101 transition shadow-xl w-100 min-h-150 rounded-lg backdrop-blur-sm bg-[#f2f2f2] py-4 px-8">
       {pokeData && (
         <div>
           <div>
             <img
               src={pokeData.sprites.other.home.front_default}
               alt={`${pokeData.name}_img`}
+              className="drop-shadow-[4px_4px_8px_#5e5e5f]"
             />
           </div>
           <div className="text-center capitalize font-bold text-4xl mt-4">
             {pokeData.name}{" "}
-            <span className="font-normal text-3xl text-gray-200">
+            <span className="font-normal text-3xl text-gray-500">
               #{pokeData.id}
             </span>
           </div>
