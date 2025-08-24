@@ -32,7 +32,7 @@ export default function PokeDexButtons() {
             WebkitMask: `url("${leftButton}")`,
             mask: `url("${leftButton}")`,
           }}
-          className={`w-full max-w-[170px] aspect-[170/60] bg-[#990a0a] hover:bg-red-400 active:bg-red-400 hover:shadow-2xl text-white hover:scale-101 transition cursor-pointer`}
+          className={`w-full max-w-[170px] aspect-[170/60] bg-[#990a0a] active:bg-red-400 hover:shadow-2xl text-white hover:scale-101 transition cursor-pointer`}
           onClick={
             () => (pokeId === 1 ? setPokeId(1025) : setPokeId(pokeId - 1)) //left button function
           }
@@ -45,7 +45,7 @@ export default function PokeDexButtons() {
             WebkitMask: `url("${rightButton}")`,
             mask: `url("${rightButton}")`,
           }}
-          className="w-full max-w-[170px] aspect-[170/60] bg-[#990a0a] hover:bg-red-400 active:bg-red-400 hover:shadow-2xl text-white hover:scale-101 transition cursor-pointer"
+          className="w-full max-w-[170px] aspect-[170/60] bg-[#990a0a] active:bg-red-400 hover:shadow-2xl text-white hover:scale-101 transition cursor-pointer"
           onClick={
             () => (pokeId === 1025 ? setPokeId(1) : setPokeId(pokeId + 1)) //right button function
           }
@@ -66,7 +66,7 @@ export default function PokeDexButtons() {
           onChange={handleInput}
         />
         <button
-          className="w-[52px] h-[30px] bg-[#ffffff] text-black font-medium hover:bg-blue-400 active:bg-blue-400 cursor-pointer"
+          className="w-[52px] h-[30px] bg-[#ffffff] text-black font-medium active:bg-blue-400 cursor-pointer"
           onClick={handleClick}
         >
           Go
