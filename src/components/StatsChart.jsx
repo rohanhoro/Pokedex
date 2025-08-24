@@ -21,7 +21,6 @@ ChartJS.register(
 
 export default function StatsChart() {
   const { pokeData } = usePokeContext();
-  console.log(pokeData);
 
   const hpValue = pokeData.stats[0].base_stat;
   const attackValue = pokeData.stats[1].base_stat;

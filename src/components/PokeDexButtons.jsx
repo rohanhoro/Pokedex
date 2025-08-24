@@ -7,7 +7,6 @@ import usePokeContext from "../hooks/usePokeContext";
 export default function PokeDexButtons() {
   const [inputValue, setInputValue] = useState("");
   const { pokeData, pokeId, setPokeId } = usePokeContext();
-  console.log(pokeId);
 
   const handleInput = (e) => {
     const input = e.target.value;
