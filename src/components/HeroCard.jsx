@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import usePokeContext from "../hooks/usePokeContext";
 import PokemonType from "./PokemonType";
 import PokeStats from "./PokeStats";
+import StatsChart from "./StatsChart";
 
 export default function HeroCard() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -37,11 +38,11 @@ export default function HeroCard() {
             <img
               src={pokeData.sprites.other.home.front_default}
               alt={`${pokeData.name}_img`}
-              className="drop-shadow-[4px_4px_8px_#5e5e5f]"
+              className="drop-shadow-[0px_0px_8px_#5e5e5f]"
             />
           </div>
-          <div className="text-center capitalize font-bold text-4xl mt-4">
-            {pokeData.name}{" "}
+          <div className="flex justify-center items-end gap-4 capitalize font-bold text-4xl mt-4">
+            <div>{pokeData.name} </div>
             <span className="font-normal text-3xl text-gray-500">
               #{pokeData.id}
             </span>
@@ -58,13 +59,21 @@ export default function HeroCard() {
             </div>
           </div>
           <div>
-            <PokeStats data={pokeData} />
-          </div>
-          <div>
-            <button className="cursor-pointer m-2" onClick={playAudio}>
-              {isPlaying ? <Pause fill="white" /> : <Play fill="white" />}
+            <button
+              className="cursor-pointer bg-[#a0e1ff] p-2 rounded-md active:bg-[#6cd0ff]"
+              onClick={playAudio}
+            >
+              {isPlaying ? (
+                <Pause fill="white" stroke="none" />
+              ) : (
+                <Play fill="white" stroke="none" />
+              )}
             </button>
             <audio src={pokeData.cries.latest} ref={audioRef} />
+          </div>
+          <div>
+            {/* <PokeStats data={pokeData} /> */}
+            <StatsChart />
           </div>
         </div>
       )}

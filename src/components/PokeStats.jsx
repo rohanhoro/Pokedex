@@ -1,3 +1,4 @@
+
 export default function PokeStats({ data }) {
   const stats = data.stats;
   

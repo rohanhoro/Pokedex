@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div
-      className="flex flex-col justify-center items-center bg-teal-950 min-h-screen w-screen bg-fixed bg-cover bg-center "
+      className="flex flex-col justify-center items-center bg-teal-950 min-h-screen w-screen bg-fixed bg-cover bg-center"
       style={{
         backgroundImage: `URL(${bg})`,
       }}
